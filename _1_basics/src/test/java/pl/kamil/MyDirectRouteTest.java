@@ -1,5 +1,6 @@
 package pl.kamil;
 
+import org.apache.camel.Exchange;
 import org.apache.camel.RoutesBuilder;
 import org.apache.camel.test.junit4.CamelTestSupport;
 import org.junit.Test;
@@ -21,11 +22,15 @@ public class MyDirectRouteTest extends CamelTestSupport{
         template.sendBody("direct:data/directInputDir",
                 "1234, imie, nazwisko");
 
-        sleep(3000);
+        sleep(5000);
 
         File file = new File("data/directOutputDir");
         assertTrue(file.isDirectory());
-        assertEquals(1, file.listFiles().length);
+
+        Exchange wynik = consumer.receive("file:data/directOutputDir");
+
+        // tak w route zrobione, taka nazwa pliku
+        assertEquals("wynik.txt", wynik.getIn().getHeader("CamelFileName"));
     }
 }
 
