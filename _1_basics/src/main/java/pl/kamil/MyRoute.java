@@ -12,10 +12,13 @@ public class MyRoute extends RouteBuilder {
         // data/input - directories
         // ?... parametry
 
-        from("file:data/input?noop=true")
-                .to("file:data/output");
+        from("file:data/input?noop=true") // consumer, exchange objekt
+                .to("log:?level=INFO")
+                .to("file:data/output"); // jeden z producerow - wypluwa exhcnage do innego route
 
         // to skopiuje plik z jednego do drugiego
 //        noop  true nie usunie pliku data/input
+
+//        mozna wiele .to generowac, logi itd
     }
 }
