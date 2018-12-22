@@ -19,6 +19,8 @@ public class MyRouteTest extends CamelTestSupport {
         String wejscie = "moj tekst!";
         String wyjscie = "aaaa moj tekst! aaaa";
 
+        // na mock endpoint mozna robi takie sprytne asrty
+//        direct trzeba recznie wyciagac zawartosc
         MockEndpoint mockEndpoint = getMockEndpoint(MyRoute.MOCK_OUTPUT_ROUTE);
         mockEndpoint.expectedBodiesReceived(wyjscie);
 
