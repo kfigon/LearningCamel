@@ -17,9 +17,10 @@ public class MyRouteTest extends CamelTestSupport {
     @Test
     public void mockRouteTest() throws InterruptedException {
         String wejscie = "moj tekst!";
+        String wyjscie = "aaaa moj tekst! aaaa";
 
         MockEndpoint mockEndpoint = getMockEndpoint(MyRoute.MOCK_OUTPUT_ROUTE);
-        mockEndpoint.expectedBodiesReceived(wejscie);
+        mockEndpoint.expectedBodiesReceived(wyjscie);
 
         template.sendBody(MyRoute.MOCK_INPUT_ROUTE, wejscie);
         assertMockEndpointsSatisfied();
