@@ -1,7 +1,6 @@
 package pl.kamil;
 
 import org.apache.camel.Exchange;
-import org.apache.camel.Processor;
 import org.apache.camel.builder.RouteBuilder;
 
 public class MyRoute extends RouteBuilder {

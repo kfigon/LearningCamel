@@ -1,0 +1,9 @@
+<person>
+    <name>Jan</name>
+    <education>
+        <school>First school</school>
+        <school>second school</school>
+        <school>some course</school>
+    </education>
+</person>
+
